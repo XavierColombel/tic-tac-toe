@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <div class="game">
+        <h1>Tic Tac Toe</h1>
+        <div class="score">
+            <div>Rond :
+                <span id="circle">0</span>
+            </div>
+            <div>Croix :
+                <span id="cross">0</span>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="line">
+                <div class="block" id="1" onmouseup="play(1)"></div>
+                <div class="block" id="2" onmouseup="play(2)"></div>
+                <div class="block" id="3" onmouseup="play(3)"></div>
+            </div>
+            <div class="line">
+                <div class="block" id="4" onmouseup="play(4)"></div>
+                <div class="block" id="5" onmouseup="play(5)"></div>
+                <div class="block" id="6" onmouseup="play(6)"></div>
+            </div>
+            <div class="line">
+                <div class="block" id="7" onmouseup="play(7)"></div>
+                <div class="block" id="8" onmouseup="play(8)"></div>
+                <div class="block" id="9" onmouseup="play(9)"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

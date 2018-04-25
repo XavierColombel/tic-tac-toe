@@ -1,17 +1,20 @@
-/* DEFINIR LES NOMS DE CLASSES POUR LES playerS */
+/* DEFINIR LES NOMS DE CLASSES POUR LES PIONS */
 var circle = "far fa-circle";
 var cross = "fas fa-times";
-//<i class="fas fa-times"></i>
 
+/* DERNIER MOVE */
 var lastMove = null;
 
+/* NOMBRE DE CASES REMPLIES */
 var moves = 0;
 
+/* SCORE */
 var score = {
   circle: 0,
   cross: 0
 };
 
+/* GRILLE POUR ASSIGNATION DES PIONS */
 var grid = {
   1: null,
   2: null,
@@ -24,6 +27,7 @@ var grid = {
   9: null
 };
 
+/* LE JOUEUR FAIT UN MOVE */
 function play(id) {
   var block = document.getElementById(id);
   var content = block.innerHTML;
@@ -38,11 +42,12 @@ function play(id) {
   }
 }
 
+/* ANALYSE DE LA GRILLE */
 function analyzeGrid(player, id) {
   lastMove = player;
   grid[id] = player;
   //console.log(grid);
-  // LINES
+  // LIGNES
   if (grid[1] === player && grid[2] === player && grid[3] === player) {
     return endGame(player);
   }
@@ -52,7 +57,7 @@ function analyzeGrid(player, id) {
   if (grid[7] === player && grid[8] === player && grid[9] === player) {
     return endGame(player);
   }
-  // COLUMNS
+  // COLONNES
   if (grid[1] === player && grid[4] === player && grid[7] === player) {
     return endGame(player);
   }
@@ -62,7 +67,7 @@ function analyzeGrid(player, id) {
   if (grid[3] === player && grid[6] === player && grid[9] === player) {
     return endGame(player);
   }
-  // CROSS
+  // DIAGONALES
   if (grid[1] === player && grid[5] === player && grid[9] === player) {
     return endGame(player);
   }
@@ -78,6 +83,7 @@ function analyzeGrid(player, id) {
   }
 }
 
+/* NETTOYAGE DE LA GRILLE */
 function cleanGrid() {
   var elements = document.getElementsByClassName("block");
   [].forEach.call(elements, (element, index) => {
@@ -87,6 +93,7 @@ function cleanGrid() {
   moves = 0;
 }
 
+/* FIN DU JEU */
 function endGame(player) {
   cleanGrid();
   if (player) {
@@ -97,6 +104,7 @@ function endGame(player) {
   whoPlays();
 }
 
+/* A QUI LE TOUR ? */
 function whoPlays() {
   if (lastMove === "circle") {
     document.getElementById("whoPlays").innerText = "Au tour des croix...";

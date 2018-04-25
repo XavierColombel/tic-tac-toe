@@ -73,6 +73,7 @@ function analyzeGrid(player, id) {
   if (moves === 9) {
     return cleanGrid();
   } else {
+    whoPlays();
     return false;
   }
 }
@@ -92,5 +93,14 @@ function endGame(player) {
     score[player] += 1;
     document.getElementById(player).innerText = score[player];
     lastMove = lastMove === "circle" ? "cross" : "circle";
+  }
+  whoPlays();
+}
+
+function whoPlays() {
+  if (lastMove === "circle") {
+    document.getElementById("whoPlays").innerText = "Au tour des croix...";
+  } else {
+    document.getElementById("whoPlays").innerText = "Au tour des ronds...";
   }
 }

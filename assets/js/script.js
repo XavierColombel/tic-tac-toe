@@ -2,6 +2,9 @@
 var circle = "far fa-circle";
 var cross = "fas fa-times";
 
+/* FREEZE GAME */
+var freeze = false;
+
 /* DERNIER MOVE */
 var lastMove = null;
 
@@ -31,7 +34,7 @@ var grid = {
 function play(id) {
   var block = document.getElementById(id);
   var content = block.innerHTML;
-  if (!content) {
+  if (!content && !freeze) {
     if (!lastMove || lastMove === "cross") {
       block.innerHTML = `<i class="${circle}"></i>`;
       analyzeGrid("circle", id);
@@ -85,6 +88,7 @@ function analyzeGrid(player, id) {
 
 /* NETTOYAGE DE LA GRILLE */
 function cleanGrid(now = false) {
+  freeze = true;
   setTimeout(function() {
     var elements = document.getElementsByClassName("block");
     [].forEach.call(elements, (element, index) => {
@@ -92,6 +96,7 @@ function cleanGrid(now = false) {
       grid[index + 1] = null;
     });
     moves = 0;
+    freeze = false;
   }, 2000);
 }
 

@@ -50,30 +50,26 @@ function analyzeGrid(player, id) {
   lastMove = player;
   grid[id] = player;
   // LIGNES
-  if (grid[1] === player && grid[2] === player && grid[3] === player) {
-    return endGame(player);
-  }
-  if (grid[4] === player && grid[5] === player && grid[6] === player) {
-    return endGame(player);
-  }
-  if (grid[7] === player && grid[8] === player && grid[9] === player) {
+  if (
+    (grid[1] === player && grid[2] === player && grid[3] === player) ||
+    (grid[4] === player && grid[5] === player && grid[6] === player) ||
+    (grid[7] === player && grid[8] === player && grid[9] === player)
+  ) {
     return endGame(player);
   }
   // COLONNES
-  if (grid[1] === player && grid[4] === player && grid[7] === player) {
-    return endGame(player);
-  }
-  if (grid[2] === player && grid[5] === player && grid[8] === player) {
-    return endGame(player);
-  }
-  if (grid[3] === player && grid[6] === player && grid[9] === player) {
+  if (
+    (grid[1] === player && grid[4] === player && grid[7] === player) ||
+    (grid[2] === player && grid[5] === player && grid[8] === player) ||
+    (grid[3] === player && grid[6] === player && grid[9] === player)
+  ) {
     return endGame(player);
   }
   // DIAGONALES
-  if (grid[1] === player && grid[5] === player && grid[9] === player) {
-    return endGame(player);
-  }
-  if (grid[3] === player && grid[5] === player && grid[7] === player) {
+  if (
+    (grid[1] === player && grid[5] === player && grid[9] === player) ||
+    (grid[3] === player && grid[5] === player && grid[7] === player)
+  ) {
     return endGame(player);
   }
   moves += 1;

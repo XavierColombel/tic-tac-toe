@@ -76,7 +76,7 @@ function analyzeGrid(player, id) {
   }
   moves += 1;
   if (moves === 9) {
-    return cleanGrid();
+    return cleanGrid(true);
   } else {
     whoPlays();
     return false;
@@ -84,13 +84,15 @@ function analyzeGrid(player, id) {
 }
 
 /* NETTOYAGE DE LA GRILLE */
-function cleanGrid() {
-  var elements = document.getElementsByClassName("block");
-  [].forEach.call(elements, (element, index) => {
-    element.innerHTML = "";
-    grid[index + 1] = null;
-  });
-  moves = 0;
+function cleanGrid(now = false) {
+  setTimeout(function() {
+    var elements = document.getElementsByClassName("block");
+    [].forEach.call(elements, (element, index) => {
+      element.innerHTML = "";
+      grid[index + 1] = null;
+    });
+    moves = 0;
+  }, now ? 0 : 2000);
 }
 
 /* FIN DU JEU */

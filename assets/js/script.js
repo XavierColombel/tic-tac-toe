@@ -76,7 +76,7 @@ function analyzeGrid(player, id) {
   }
   moves += 1;
   if (moves === 9) {
-    return cleanGrid(true);
+    return cleanGrid();
   } else {
     whoPlays();
     return false;
@@ -92,7 +92,7 @@ function cleanGrid(now = false) {
       grid[index + 1] = null;
     });
     moves = 0;
-  }, now ? 0 : 2000);
+  }, 2000);
 }
 
 /* FIN DU JEU */

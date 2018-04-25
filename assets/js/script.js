@@ -9,7 +9,7 @@ var freeze = false;
 var lastMove = null;
 
 /* NOMBRE DE CASES REMPLIES */
-var moves = 0;
+var movesCount = 0;
 
 /* SCORE */
 var score = {
@@ -72,8 +72,8 @@ function analyzeGrid(player, id) {
   ) {
     return endGame(player);
   }
-  moves += 1;
-  if (moves === 9) {
+  movesCount += 1;
+  if (movesCount === 9) {
     return cleanGrid();
   } else {
     whoPlays();
@@ -90,7 +90,7 @@ function cleanGrid(now = false) {
       element.innerHTML = "";
       grid[index + 1] = null;
     });
-    moves = 0;
+    movesCount = 0;
     freeze = false;
   }, 2000);
 }

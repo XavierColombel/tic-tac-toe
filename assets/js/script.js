@@ -49,7 +49,6 @@ function play(id) {
 function analyzeGrid(player, id) {
   lastMove = player;
   grid[id] = player;
-  //console.log(grid);
   // LIGNES
   if (grid[1] === player && grid[2] === player && grid[3] === player) {
     return endGame(player);
